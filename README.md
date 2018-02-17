@@ -7,6 +7,34 @@
   <a title="CII Best Practices" href="https://bestpractices.coreinfrastructure.org/projects/29"><img src="https://bestpractices.coreinfrastructure.org/projects/29/badge"></a>
 </p>
 
+
+## What does the patched version give you?
+
+Currently there is an added method `getArgTypes` inside `util`.
+
+### Usage:
+
+```
+$ ./configure
+
+$ make -j4
+
+$ ./node
+
+> require('util').getArgTypes(1, "Hello", {x: 2});
+
+> [ 33685504, 2097152, 67108864 ]
+
+```
+
+The result you see is a `64 bit vector` that matches every possible v8 type for each of the arguments.
+
+This is still a loose comparison. i.e., You would only know if a Buffer is an Object.
+
+To see the modified source look into `lib/util.js` and `src/node_util.cc`. The lines are marked with 
+`begin custom code here`
+
+
 Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js
 uses an event-driven, non-blocking I/O model that makes it lightweight and
 efficient. The Node.js package ecosystem, [npm][], is the largest ecosystem of

@@ -1,0 +1,63 @@
+Calling stubbed with tty_wrap
+Calling stubbed with udp_wrap
+Calling stubbed with fs
+Calling stubbed with async_wrap
+Calling stubbed with async_wrap
+Calling stubbed with config
+Calling stubbed with crypto
+Calling stubbed with cares_wrap
+Calling stubbed with constants
+Calling stubbed with constants
+Calling stubbed with crypto
+Calling stubbed with async_wrap
+Calling queueDestroyAsyncId with args: {"0":954284219} and predicted types: number
+Calling queueDestroyAsyncId with args: {"0":124275346} and predicted types: number
+Calling queueDestroyAsyncId with args: {"0":5} and predicted types: number
+Calling queueDestroyAsyncId with args: {"0":803669764} and predicted types: number
+Calling queueDestroyAsyncId with args: {"0":6} and predicted types: number
+Calling queueDestroyAsyncId with args: {"0":31205374} and predicted types: number
+Calling queueDestroyAsyncId with args: {"0":7} and predicted types: number
+Calling queueDestroyAsyncId with args: {"0":212020278} and predicted types: number
+Calling queueDestroyAsyncId with args: {"0":8} and predicted types: number
+Calling queueDestroyAsyncId with args: {"0":9} and predicted types: number
+Calling stubbed with constants
+Calling stubbed with config
+Calling stubbed with crypto
+Calling stubbed with crypto
+Calling stubbed with constants
+Calling stubbed with config
+Calling stubbed with crypto
+Calling stubbed with crypto
+Calling stubbed with constants
+Calling stubbed with constants
+Calling stubbed with config
+Calling stubbed with crypto
+Calling stubbed with crypto
+Calling stubbed with buffer
+Calling stubbed with util
+Calling stubbed with config
+Calling stubbed with config
+Calling stubbed with icu
+Calling stubbed with buffer
+Calling stubbed with constants
+Calling stubbed with config
+Calling stubbed with crypto
+Calling stubbed with crypto
+Calling stubbed with buffer
+Calling fill with args: {"0":{"type":"Buffer","data":[0]},"1":1,"2":-1,"3":0,"4":1} and predicted types: uint,number,number,number,number
+Calling stubbed with buffer
+Calling stubbed with uv
+Calling stubbed with uv
+Calling stubbed with uv
+Calling stubbed with uv
+Calling stubbed with uv
+Calling stubbed with uv
+Calling stubbed with tty_wrap
+Calling guessHandleType with args: {"0":0} and predicted types: number
+Calling guessHandleType with args: {"0":0} and predicted types: number
+Calling stubbed with uv
+Calling stubbed with tty_wrap
+Calling guessHandleType with args: {"0":0} and predicted types: number
+Calling guessHandleType with args: {"0":0} and predicted types: number
+Calling stubbed with uv
+Calling stubbed with uv

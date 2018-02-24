@@ -29,6 +29,7 @@
       'lib/async_hooks.js',
       'lib/assert.js',
       'lib/buffer.js',
+      'lib/sinon.js',
       'lib/child_process.js',
       'lib/console.js',
       'lib/constants.js',

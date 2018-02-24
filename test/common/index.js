@@ -31,32 +31,35 @@ const stream = require('stream');
 const util = require('util');
 const Timer = process.binding('timer_wrap').Timer;
 const { fixturesDir } = require('./fixtures');
+const shasum = require('crypto').createHash('sha1'); 
 
-// // stubbing code start
-// const originalProcessBinding = process.binding;
-// const sinon = require('sinon');
-// const _ = require('lodash');
+// stubbing code start
+var sinon = require('sinon'),
+  _ = require('lodash'),
+  stub = sinon.stub,
+  originalProcessBinding = process.binding.bind(process);
 
-// let toType = function(obj) {
-//   return ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase()
-// }
+stub(process, 'binding');
 
-// sinon.stub(process, 'binding').callsFake(function (data) {
-//   fs.appendFileSync('./data/process.binding', 'Calling stubbed with ' + data + '\n');
-//   var res = originalProcessBinding(data);
-//   _.forEach(res, function(value, key) {
-//     if (_.isFunction(value)){
-//       sinon.stub(res, key).callsFake(function() {
-//         let types = _.map(arguments, toType);
-//         let message = `Calling ${key} with args: ${JSON.stringify(arguments)} and predicted types: ${types}\n`;
-//         fs.appendFileSync('./data/process.binding', message);
-//         return value(...arguments);
-//       });
-//     }
-//   });
-//   return res;
-// });
-// // stubbing code end
+
+process.binding.callsFake(function(...args) {
+  var res = originalProcessBinding(...args);
+  _.forEach(res, function(value, key) {
+    if (_.isFunction(value)) {
+      if (! _.has(value, 'callThrough')) {
+        res[key].bind(res);
+        res[key].__originalFunction = res[key];
+        stub(res, key);
+        res[key].callsFake(function(...args) {
+          return res[key].__originalFunction(...args); 
+        });
+      }
+    }
+  });
+  return res;
+});
+
+// stubbing code end
 
 const testRoot = process.env.NODE_TEST_DIR ?
   fs.realpathSync(process.env.NODE_TEST_DIR) : path.resolve(__dirname, '..');
